@@ -9,14 +9,14 @@ const EditPost = () => {
 		state.posts.find((post) => post.id === Number(postId))
 	);
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
+	let navigate = useNavigate();
 	const [title, setTitle] = useState(post.title);
 	const [content, setContent] = useState(post.content);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(patchPost(postId, title, content));
-		navigate.push(`/posts/${postId}`);
+		navigate(`/posts/${postId}`);
 	};
 
 	return (

@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ViewPost = ({ params }) => {
 	const { postId } = params;
+	let navigate = useNavigate();
 	const post = useSelector((state) =>
 		state.posts.find((post) => post.id === Number(postId))
 	);
@@ -15,12 +16,14 @@ const ViewPost = ({ params }) => {
 
 	return (
 		<div>
-			<h2>{title}</h2>
-			<p>{content}</p>
-			<p>ID: {id}</p>
-			<p>Last updated: {last_updated}</p>
-			<p>Originally published: {originally_published}</p>
-			<Link to={`/viewpost/${id}/edit`}>Edit Post</Link>
+			<div>
+				<h2>{title}</h2>
+				<p>{content}</p>
+				<p>ID: {id}</p>
+				<p>Last updated: {last_updated}</p>
+				<p>Originally published: {originally_published}</p>
+			</div>
+			<button onClick={() => navigate(`/viewpost/${id}/edit`)}>Edit Post</button>
 		</div>
 	);
 };

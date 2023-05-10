@@ -87,7 +87,7 @@ function App() {
 				<Route path="viewpost/:id" element={<ViewPost2 />} />
 				{/* <Route exact path="/delete" element={<Delete />} /> */}
 				<Route path="createblog" element={<CreateBlog />}></Route>
-				<Route path="posts/:id/edit" element={<EditPost />}></Route>
+				<Route path="viewpost/:id/edit" element={<EditPost />}></Route>
 			</Routes>
 		</div>
 	);
