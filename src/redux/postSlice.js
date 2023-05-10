@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const postsSlice = createSlice({
+export const postSlice = createSlice({
 	name: 'posts',
 	initialState: [],
 	reducers: {
@@ -16,7 +16,7 @@ export const postsSlice = createSlice({
 	},
 });
 
-export const { setPosts, updatePost } = postsSlice.actions;
+export const { setPosts, updatePost } = postSlice.actions;
 
 export const fetchPosts = () => async (dispatch) => {
 	try {
@@ -42,4 +42,4 @@ export const patchPost = (id, title, content) => async (dispatch) => {
 	}
 };
 
-export default postsSlice.reducer;
+export default postSlice;

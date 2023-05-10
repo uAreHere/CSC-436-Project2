@@ -3,8 +3,9 @@ import { NavLink as RouterLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from './components/Container';
 import CreateBlog from './pages/CreateBlog';
-import ViewPost from './pages/ViewPost';
+import ViewPost2 from './pages/ViewPost';
 import BlogPosts from './pages/BlogPosts';
+import EditPost from './pages/EditPost';
 //import Delete from './components/Delete';
 
 function App() {
@@ -83,10 +84,10 @@ function App() {
 			<Routes>
 				{/* <Route path="listall/*" element={<ListAll />} /> */}
 				<Route exact path="/" element={<BlogPosts />} />
-				<Route path="viewpost/:id" element={<ViewPost />} />
+				<Route path="viewpost/:id" element={<ViewPost2 />} />
 				{/* <Route exact path="/delete" element={<Delete />} /> */}
 				<Route path="createblog" element={<CreateBlog />}></Route>
-				{/* <Route path="getallposts" element={}></Route> */}
+				<Route path="posts/:id/edit" element={<EditPost />}></Route>
 			</Routes>
 		</div>
 	);
