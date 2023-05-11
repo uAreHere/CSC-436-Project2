@@ -18,14 +18,16 @@ export const postSlice = createSlice({
 
 export const { setPosts, updatePost } = postSlice.actions;
 
-export const fetchPosts = () => async (dispatch) => {
-	try {
-		const response = await axios.get('http://localhost:3001/v1/api/posts');
-		dispatch(setPosts(response.data));
-	} catch (error) {
-		console.log(error);
-	}
-};
+export const fetchPosts =
+	({ id }) =>
+	async (dispatch) => {
+		try {
+			const response = await axios.get(`http://localhost:3001/v1/api/posts/${id}`);
+			dispatch(setPosts(response.data));
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 export const patchPost = (id, title, content) => async (dispatch) => {
 	try {
@@ -42,4 +44,4 @@ export const patchPost = (id, title, content) => async (dispatch) => {
 	}
 };
 
-export default postSlice;
+export default postSlice.reducer;

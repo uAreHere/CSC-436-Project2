@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { postSlice } from './postSlice';
+import postReducer from './postSlice';
+import thunkMiddleware from 'redux-thunk';
 
-export default configureStore({
+const store = configureStore({
 	reducer: {
-		posts: postSlice,
+		posts: postReducer,
 	},
+	middleware: [thunkMiddleware],
 });
+
+export default store;

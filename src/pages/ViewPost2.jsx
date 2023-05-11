@@ -1,9 +1,7 @@
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 const ViewPost = ({ params }) => {
 	const { postId } = params;
-	let navigate = useNavigate();
 	const post = useSelector((state) =>
 		state.posts.find((post) => post.id === Number(postId))
 	);
@@ -21,7 +19,6 @@ const ViewPost = ({ params }) => {
 			<p>ID: {id}</p>
 			<p>Last updated: {last_updated}</p>
 			<p>Originally published: {originally_published}</p>
-			<button onClick={() => navigate(`/blog/${post.id}/edit`)}>Edit Post</button>
 		</div>
 	);
 };

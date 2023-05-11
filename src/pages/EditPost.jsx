@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { patchPost } from '../redux/postSlice';
 import { useState } from 'react';
+import Loading from '../components/Loading';
 
 const EditPost = () => {
 	const { postId } = useParams();
@@ -10,14 +11,18 @@ const EditPost = () => {
 	);
 	const dispatch = useDispatch();
 	let navigate = useNavigate();
-	const [title, setTitle] = useState(post.title);
-	const [content, setContent] = useState(post.content);
+	const [title, setTitle] = useState(post?.title || '');
+	const [content, setContent] = useState(post?.content || '');
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(patchPost(postId, title, content));
 		navigate(`/posts/${postId}`);
 	};
+
+	if (!post) {
+		return <Loading />;
+	}
 
 	return (
 		<form onSubmit={handleSubmit}>
