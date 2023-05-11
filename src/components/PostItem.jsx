@@ -8,7 +8,7 @@ const PostItem = (props) => {
 	return (
 		<Container className="btn">
 			<button className="card p-10">
-				<div className="card-body" onClick={() => navigate(`/viewpost/${post.id}`)}>
+				<div className="card-body" onClick={() => navigate(`/blog/${post.id}`)}>
 					<h2>{post.title}</h2>
 				</div>
 			</button>

@@ -16,14 +16,12 @@ const ViewPost = ({ params }) => {
 
 	return (
 		<div>
-			<div>
-				<h2>{title}</h2>
-				<p>{content}</p>
-				<p>ID: {id}</p>
-				<p>Last updated: {last_updated}</p>
-				<p>Originally published: {originally_published}</p>
-			</div>
-			<button onClick={() => navigate(`/viewpost/${id}/edit`)}>Edit Post</button>
+			<h2>{title}</h2>
+			<p>{content}</p>
+			<p>ID: {id}</p>
+			<p>Last updated: {last_updated}</p>
+			<p>Originally published: {originally_published}</p>
+			<button onClick={() => navigate(`/blog/${post.id}/edit`)}>Edit Post</button>
 		</div>
 	);
 };

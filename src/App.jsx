@@ -33,7 +33,7 @@ function App() {
 								</li>
 								<li className="nav-item px-3">
 									<RouterLink
-										to="createblog"
+										to="create"
 										className={({ isActive }) => {
 											return (
 												'px-3 py-2 rounded-md text-sm font-medium no-underline' +
@@ -84,10 +84,10 @@ function App() {
 			<Routes>
 				{/* <Route path="listall/*" element={<ListAll />} /> */}
 				<Route exact path="/" element={<BlogPosts />} />
-				<Route path="viewpost/:id" element={<ViewPost2 />} />
+				<Route path="blog/:id" element={<ViewPost2 />} />
 				{/* <Route exact path="/delete" element={<Delete />} /> */}
-				<Route path="createblog" element={<CreateBlog />}></Route>
-				<Route path="viewpost/:id/edit" element={<EditPost />}></Route>
+				<Route path="create" element={<CreateBlog />}></Route>
+				<Route path="blog/:id/edit" element={<EditPost />}></Route>
 			</Routes>
 		</div>
 	);
